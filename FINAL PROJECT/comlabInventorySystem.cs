@@ -9,7 +9,7 @@ class viewComputers
 {
     public void Computer
     {
-        
+        //kunware lang e2
     }
 }
 
