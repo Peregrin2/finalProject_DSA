@@ -7,16 +7,14 @@ using System.IO; // | StreamWrite | StreamReader | File.ReadAllLines() | File.Ex
 
 class viewComputers
 {
-    public void Computer
-    {
-        //kunware lang e2
-    }
+
 }
 
 class Program
 {
     static void Main()
     {
-       
+       Console.WriteLine("Hello world!");
     }
 }
+
