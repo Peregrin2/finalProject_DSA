@@ -15,8 +15,8 @@ public class computerUnit
     private string pc_status;
 
     public string PcID { get { return pc_ID; } }
-    public string Specs { get { return pc_Specs; } }
-    public string Status { get { return pc_status; } }
+    public string Specs { get { return pc_Specs; } set{ pc_Specs = value;} }
+    public string Status { get { return pc_status; } set{ pc_status = value;}}
 
     public computerUnit(string pc_ID, string pc_Specs, string pc_status)
         {
@@ -55,7 +55,9 @@ public class computerUnit
     class Node
         {
             public computerUnit Data;
+            
             public Node Next;
+            
 
             public Node(computerUnit data)
             {
@@ -101,9 +103,54 @@ class computerLinkedList
             return null;
         }
 
-        public computerUnit updateUnit();//DITO AKO NATAPOS
+
+        public computerUnit updateUnit(string targetID, string newSpecs, string newStatus)
+        {
+           Node current = head;
+           while(current != null)
+            {
+                if(current.Data.PcID.Equals(targetID, StringComparison.OrdinalIgnoreCase))
+                {
+                    current.Data.Specs = newSpecs;
+                    current.Data.Status = newStatus;
+                    return current.Data;
+                }
+                current = current.Next;
+            }
+            return null;
+        }
+
+        public bool deleteUnit(string targetID)
+        {
+            if(head == null) return false;
+
+            if(head.Data.PcID.Equals(targetID, StringComparison.OrdinalIgnoreCase))
+            {
+                head = head.Next;
+                return true;
+            }
+
+            Node previous = head;
+            Node current = head.Next;
+
+            while(current != null)
+            {
+                if (current.Data.PcID.Equals(targetID, StringComparison.OrdinalIgnoreCase))
+                {
+                    previous.Next = current.Next; 
+                    return true;
+                }
+
+                previous = current;
+                current = current.Next;
+            }
+            return true;
+        }
     }
 
+
+
+    //UNDO NEXT
 
     class program
     {
@@ -118,7 +165,7 @@ class computerLinkedList
                 try
                 {
                     Console.Clear();
-                }
+                }   
                 catch (Exception)
                 {
                     Console.WriteLine("\n--------------------------------------------------\n");
@@ -126,11 +173,11 @@ class computerLinkedList
                 
                 
                 Console.WriteLine("=== COMPUTER LABORATORY INVENTORY SYSTEM ===");
-                Console.WriteLine("[1] View Comlab 1 Layout UI"); //wala pa
-                Console.WriteLine("[2] Add New Computer Unit (Create)"); //wala pa
-                Console.WriteLine("[3] Search Computer Unit (Retrieve)"); //wala pa
-                Console.WriteLine("[4] Update Computer Unit");//wala pa
-                Console.WriteLine("[5] Delete Computer Unit");//wala pa
+                Console.WriteLine("[1] View Comlab 1 Layout UI");//wala pa
+                Console.WriteLine("[2] Add New Computer Unit (Create)"); 
+                Console.WriteLine("[3] Search Computer Unit (Retrieve)"); 
+                Console.WriteLine("[4] Update Computer Unit");
+                Console.WriteLine("[5] Delete Computer Unit");
                 Console.WriteLine("[6] Undo Last Action");//wala pa(using stack)
                 Console.WriteLine("[7] Exit & Save");
                 Console.Write("Enter your choice: ");
