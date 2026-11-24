@@ -50,7 +50,59 @@ public class computerUnit
             if (parts.Length != 3) return null;
             return new computerUnit(parts[0], parts[1], parts[2]);
         }
-}
+}   
+
+
+
+ 
+
+    public class inventoryManager
+    {
+        private const string FilePath = "inventory.txt";
+
+        //SAVEFILE
+        public static void saveInventory(List<computerUnit> units)
+        {
+            List<string> lines = new List<string>();
+
+            foreach(var unit in units)
+            {
+                lines.Add(unit.ToFileString());
+            }
+
+            File.WriteAllLines(FilePath, lines);
+            Console.WriteLine("Inventory successfully saved to " + FilePath);
+        }
+
+        //LOADFILE
+        public static List<computerUnit> LoadInventory()
+        {
+            List<computerUnit> units = new List<computerUnit>();
+
+            
+            if (!File.Exists(FilePath))
+            {
+                Console.WriteLine("No existing save file found.");
+                return units;
+            }
+
+            string[] lines = File.ReadAllLines(FilePath);
+
+            foreach (string line in lines)
+            {
+                if (string.IsNullOrWhiteSpace(line)) continue; 
+
+                computerUnit unit = computerUnit.FromFileString(line);
+                if (unit != null)
+                {
+                    units.Add(unit);
+                }
+            }
+
+            Console.WriteLine("Inventory successfully loaded from " + FilePath);
+            return units;
+        }
+    }
 
     class Node
         {
@@ -69,6 +121,39 @@ public class computerUnit
 class computerLinkedList
     {
         private Node head;
+
+
+        public void displayComlab1Layout()
+        {
+            Console.WriteLine("=============== COMPUTER LABORATORY 1 ===============");
+            //GRRRRRRRRRR 
+        }
+
+        public List<computerUnit> getAllUnits()
+        {
+            List<computerUnit> units = new List<computerUnit>();
+
+            Node current = head;
+
+            while (current != null)
+            {
+                units.Add(current.Data);
+                current = current.Next;
+            }
+
+            return units;
+        }
+
+        public void loadUnits(List<computerUnit> units)
+        {
+            head = null;
+
+            foreach (computerUnit unit in units)
+            {
+                addUnit(unit);
+            }
+        }
+        
 
         public void addUnit(computerUnit unit)
         {
@@ -144,7 +229,7 @@ class computerLinkedList
                 previous = current;
                 current = current.Next;
             }
-            return true;
+            return false;
         }
     }
 
@@ -157,6 +242,8 @@ class computerLinkedList
         static void Main(string[] args)
         {
             computerLinkedList inventory = new computerLinkedList();
+            
+            //inventory.addUnit(new computerUnit("PC-01", "Intel i9, 32GB RAM", "Available"));
 
             bool exit = false;
             while (!exit)
@@ -187,10 +274,14 @@ class computerLinkedList
                 switch (choice)
                 {
                     case 1:
-                        Console.WriteLine("ajksdhakjshda");
+                        inventory.displayComlab1Layout();
+                        Console.WriteLine("\nPress any key to return to the menu...");
+                        Console.ReadLine();
                     break;
                     case 2:
-                        Console.WriteLine("ajksdhakjshda");
+                        Console.WriteLine("Enter Computer ID: ");
+                        string id = Console.ReadLine();
+
                     break;
                     case 3:
                         Console.WriteLine("ajksdhakjshda");
