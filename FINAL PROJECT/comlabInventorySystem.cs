@@ -220,20 +220,16 @@ public class computerUnit
         }
 
           public void displayComlab1Layout()
-        {
-            
+        {  
             Console.WriteLine("=====================================================================");
             Console.WriteLine("======================= COMPUTER LABORATORY 1 ======================="); 
             Console.WriteLine("=====================================================================\n");
             
             Console.WriteLine("PC-09 | PC-08 | PC-07 | PC-06 | PC-05 | PC-04 | PC-03 | PC-02 | PC-01\n");
-            Console.WriteLine("PC-10 | PC-11 | PC-12 | PC-13 | PC-14 | PC-15 | PC-16 | PC-17 | PC-18\n");
-            Console.WriteLine("PC-19 | PC-20 | PC-21 | PC-22 | PC-23 | PC-24 | PC-25 | PC-26 | PC-27\n");
-
-            //HINDI PA FINAL
+            Console.WriteLine("PC-18 | PC-17 | PC-16 | PC-15 | PC-14 | PC-13 | PC-12 | PC-11 | PC-10\n");
+            Console.WriteLine("PC-25 | PC-24 | PC-23 | PC-22 | PC-21 | PC-20 | PC-19\n");
+            Console.WriteLine("PC-34 | PC-33 | PC-32 | PC-31 | PC-30 | PC-29 | PC-28 | PC-27 | PC-26 \n");
             
-            
-            //GRRRRRRRRRR 
         }
     }
 
@@ -247,7 +243,35 @@ public class computerUnit
         {
             computerLinkedList inventory = new computerLinkedList();
             
-            //inventory.addUnit(new computerUnit("PC-01", "Intel i9, 32GB RAM", "Available"));
+            inventory.addUnit(new computerUnit("PC-01", "Intel i9, 32GB RAM", "Not Working"));
+            inventory.addUnit(new computerUnit("PC-02", "Intel i9, 32GB RAM", "Working"));
+            inventory.addUnit(new computerUnit("PC-03", "Intel i9, 32GB RAM", "Working"));
+            inventory.addUnit(new computerUnit("PC-04", "Intel i9, 32GB RAM", "Working"));
+            inventory.addUnit(new computerUnit("PC-05", "Intel i9, 32GB RAM", "Working"));
+            inventory.addUnit(new computerUnit("PC-06", "Intel i9, 32GB RAM", "Working"));
+            inventory.addUnit(new computerUnit("PC-07", "Intel i9, 32GB RAM", "Not Working"));
+            inventory.addUnit(new computerUnit("PC-08", "Intel i9, 32GB RAM", "Not Working"));
+            inventory.addUnit(new computerUnit("PC-09", "Intel i9, 32GB RAM", "Working"));
+            inventory.addUnit(new computerUnit("PC-10", "Intel i9, 32GB RAM", "Working"));
+            inventory.addUnit(new computerUnit("PC-11", "Intel i9, 32GB RAM", "Working"));
+            inventory.addUnit(new computerUnit("PC-12", "Intel i9, 32GB RAM", "Not Working"));
+            inventory.addUnit(new computerUnit("PC-13", "Intel i9, 32GB RAM", "Working"));
+            inventory.addUnit(new computerUnit("PC-14", "Intel i9, 32GB RAM", "Working"));
+            inventory.addUnit(new computerUnit("PC-15", "Intel i9, 32GB RAM", "Not Working"));
+            inventory.addUnit(new computerUnit("PC-16", "Intel i9, 32GB RAM", "Working"));
+            inventory.addUnit(new computerUnit("PC-17", "Intel i9, 32GB RAM", "Not Working"));
+            inventory.addUnit(new computerUnit("PC-18", "Intel i9, 32GB RAM", "Working"));
+            inventory.addUnit(new computerUnit("PC-19", "Intel i9, 32GB RAM", "Working"));
+            inventory.addUnit(new computerUnit("PC-20", "Intel i9, 32GB RAM", "Working"));
+            inventory.addUnit(new computerUnit("PC-21", "Intel i9, 32GB RAM", "Working"));
+            inventory.addUnit(new computerUnit("PC-22", "Intel i9, 32GB RAM", "Working"));
+            inventory.addUnit(new computerUnit("PC-23", "Intel i9, 32GB RAM", "Working"));
+            inventory.addUnit(new computerUnit("PC-24", "Intel i9, 32GB RAM", "Not Working"));
+            inventory.addUnit(new computerUnit("PC-25", "Intel i9, 32GB RAM", "Not Working"));
+            inventory.addUnit(new computerUnit("PC-27", "Intel i9, 32GB RAM", "Working"));
+            inventory.addUnit(new computerUnit("PC-28", "Intel i9, 32GB RAM", "Working"));
+
+
 
             bool exit = false;
             while (!exit)
@@ -282,12 +306,13 @@ public class computerUnit
                         Console.ReadLine();
                     break;
                     case 2:
-                        Console.WriteLine("Enter Computer ID: ");
-                        string id = Console.ReadLine();
+                        Console.WriteLine("");
 
                     break;
                     case 3:
-                        Console.WriteLine("ajksdhakjshda");
+                        Console.WriteLine("What Computer you want to search?: ");
+                        string searchID = Console.ReadLine();
+
                     break;
                     case 4:
                         Console.WriteLine("ajksdhakjshda");
