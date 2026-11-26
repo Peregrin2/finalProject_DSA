@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.IO; // | StreamWrite | StreamReader | File.ReadAllLines() | File.Exists()     | StreamWriter(path, true) |
-                //  |    Write    |    Read      |  Read entire file   | Check file exists |        Append            |
+using System.IO;
 
 //SAMPLE PALANG
 //SPAG CODE TvT
@@ -51,10 +50,6 @@ public class computerUnit
             return new computerUnit(parts[0], parts[1], parts[2]);
         }
 }   
-
-
-
- 
 
     public class inventoryManager
     {
@@ -118,17 +113,9 @@ public class computerUnit
             }
         }
 
-class computerLinkedList
+    class computerLinkedList
     {
         private Node head;
-
-
-        public void displayComlab1Layout()
-        {
-            Console.WriteLine("=============== COMPUTER LABORATORY 1 ===============");
-            //GRRRRRRRRRR 
-        }
-
         public List<computerUnit> getAllUnits()
         {
             List<computerUnit> units = new List<computerUnit>();
@@ -231,6 +218,23 @@ class computerLinkedList
             }
             return false;
         }
+
+          public void displayComlab1Layout()
+        {
+            
+            Console.WriteLine("=====================================================================");
+            Console.WriteLine("======================= COMPUTER LABORATORY 1 ======================="); 
+            Console.WriteLine("=====================================================================\n");
+            
+            Console.WriteLine("PC-09 | PC-08 | PC-07 | PC-06 | PC-05 | PC-04 | PC-03 | PC-02 | PC-01\n");
+            Console.WriteLine("PC-10 | PC-11 | PC-12 | PC-13 | PC-14 | PC-15 | PC-16 | PC-17 | PC-18\n");
+            Console.WriteLine("PC-19 | PC-20 | PC-21 | PC-22 | PC-23 | PC-24 | PC-25 | PC-26 | PC-27\n");
+
+            //HINDI PA FINAL
+            
+            
+            //GRRRRRRRRRR 
+        }
     }
 
 
@@ -255,14 +259,13 @@ class computerLinkedList
                 }   
                 catch (Exception)
                 {
-                    Console.WriteLine("\n--------------------------------------------------\n");
+                    Console.WriteLine();
                 }
-                
                 
                 Console.WriteLine("=== COMPUTER LABORATORY INVENTORY SYSTEM ===");
                 Console.WriteLine("[1] View Comlab 1 Layout UI");//wala pa
-                Console.WriteLine("[2] Add New Computer Unit (Create)"); 
-                Console.WriteLine("[3] Search Computer Unit (Retrieve)"); 
+                Console.WriteLine("[2] Add New Computer Unit"); 
+                Console.WriteLine("[3] Search Computer Unit"); 
                 Console.WriteLine("[4] Update Computer Unit");
                 Console.WriteLine("[5] Delete Computer Unit");
                 Console.WriteLine("[6] Undo Last Action");//wala pa(using stack)
